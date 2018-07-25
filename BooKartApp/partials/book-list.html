@@ -1,0 +1,30 @@
+<div id="bookListWrapper">
+    <form role="form">
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Search here..." ng-model="SearchStr"/>
+        </div>
+    </form>
+
+    <ul class="list-unstyled">
+        <li class="book" ng-repeat="book in books | filter: SearchStr">
+            
+            <div class="book-details clearfix">
+                    <img src="imgs/{{book.imgUrl}}" class="imgDim"/>
+                    <div class="content">
+                        <h3>{{book.name | uppercase}}</h3>
+                        <p>{{book.price | dollar}}</p>
+                        <ul class="list-unstyled list-inline">
+                            <li>Rating: {{book.rating}}</li>
+                            <li>Binding: {{book.binding}}</li>
+                            <li>Publisher: {{book.publisher}}</li>
+                            <li>Released: {{book.releaseDate}}</li>
+                        </ul>
+                        <p>{{book.details}} </p>
+                    </div>
+        
+                <button class="btn btn-info pull-right" ng-click="addToKart(book)">Add to Kart</button>
+            </div>
+        </li>
+    </ul>
+       
+</div>
